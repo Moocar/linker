@@ -99,7 +99,10 @@ The new project will be created in `(:out-dir spec)`.
 
 ## Example
 
-There is an example project in the `examples` directory. It describes two sub projects `project-a` and `project-b`. When we run `lein run examples/linker.edn`
+There is an example project in the `examples` directory. It describes
+two sub projects `project-a` and `project-b`. When we run `lein run
+examples/linker.edn` it will produce a new super project in
+`/tmp/project-a-b`. Give it a whirl
 
 ## Alternatives
 
@@ -109,6 +112,7 @@ source file, not your jar" problem
 
 - [Leiningen Checkouts](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md#checkout-dependencies)
 - [lein-voom](https://github.com/LonoCloud/lein-voom)
+- Git submodules (good luck)
 
 ## License
 
