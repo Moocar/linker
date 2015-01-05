@@ -70,7 +70,7 @@ Linker is just a clojure project that can be required, or run from the
 command line. It takes one argument, a map that includes all
 information required to generate the super project. This is known as a
 spec. For a fully documented spec, see the
-[sample spec file](/linker/blob/master/examples/linker.edn).
+[sample spec file](https://github.com/Moocar/linker/blob/master/examples/linker.edn).
 
 Linker takes the spec file, and uses it perform 2 actions
 
