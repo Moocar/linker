@@ -1,0 +1,33 @@
+{;; The directory in which the generated project will be created. Does
+ ;; not need to exist beforehand
+ :out-dir "/tmp/project-a-b"
+
+ ;; List of projects to link to in the generate project. Each project
+ ;; should be a map with a key :dir whose value should be the
+ ;; project's directory on disk. ~ will be expanded to the user's home
+ ;; directory
+ :projects [{:dir "examples/project-a"}
+            {:dir "examples/project-b"}]
+
+ ;; Specify files/directories to ignore when linking. This is
+ ;; according to the glob syntax specified
+ ;; in [java.nio.file.FileSystem/getPathMatcher](http://docs.oracle.com/javase/7/docs/api/java/nio/file/FileSystem.html#getPathMatcher(java.lang.String)).
+ ;; In addition, the following string will also be used to ignore
+ ;; files in each
+ ;; project "{project.clj,pom.xml,target,LICENSE,README.md,intro.md,.nrepl-port,.gitignore}"
+ :omit "{*.iml,*.idea,**.*~}"
+
+ ;; The project.clj that will be created in the root of the generated
+ ;; project. This is exactly the same as expected by lein, except for
+ ;; the following:
+ ;; - Instead of (defproject project-name version ...), include
+ ;;   project-name and version as top level keys.
+ ;; - all linked project's dependencies will be concatenated
+ ;;   onto :dependencies. So it should be used only for dev purposes
+ :project-clj
+ {:project-name project-a-b
+  :version "0.1.0-SNAPSHOT"
+  :dependencies
+  [[org.clojure/java.classpath "0.2.2"]
+   [clj-stacktrace "0.2.8"]]
+  :jvm-opts ["-Xmx1g" "-XX:MaxPermSize=256m" "-XX:-OmitStackTraceInFastThrow"]}}
