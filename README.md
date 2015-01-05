@@ -13,13 +13,13 @@ back to a top level, before descending back down into
 project-b/src/foo/bar/baz.clj.
 
 Linker is a (very experimental) solution to ease that problem. Linker
-takes a list of sub projects, and creates a super project that links
-to all source files in the sub project.
+takes a list of sub projects, and creates a super project that
+symlinks to all source files in the sub projects.
 
 ## Drawbacks
 
 Linker is a cheap solution that does just enough to make navigating
-between sub projects easier.
+between sub projects easier. Some drawbacks include:
 
 - new files are not automatically added to your super project (maybe
   coming soon)
@@ -40,9 +40,9 @@ placed to put your spec file. However there is no restriction.
 Now that your new project is created, open the super project in the
 IDE of your choice. All your source files are under a single /src and
 the new project.clj has all the information required to start a repl.
-Now if you jump to a another project's function definition in your
-IDE, instead of taking you to the file inside the jar file, it will
-take you to the symlink file. So any edits will be made back to the
+Now if you jump to another project's function definition in your IDE,
+instead of taking you to the file inside the jar file, it will take
+you to the symlink file. So any edits will be made back to the
 original file.
 
 ### Creating new files
@@ -52,7 +52,7 @@ project's source directory, and re-run linker. In future, it would
 make sense to add a watcher to the sub project root directories so
 that a background linker could automatically add the new symlinks
 
-### Creating new projects
+### Creating new sub projects
 
 Whenever you create a new project, you will need to update your spec
 file to include the new project, then you'll need to rerun linker. If
@@ -70,7 +70,7 @@ Linker is just a clojure project that can be required, or run from the
 command line. It takes one argument, a map that includes all
 information required to generate the super project. This is known as a
 spec. For a fully documented spec, see the
-[sample spec file](linker/blob/master/examples/linker.edn).
+[sample spec file](/linker/blob/master/examples/linker.edn).
 
 Linker takes the spec file, and uses it perform 2 actions
 

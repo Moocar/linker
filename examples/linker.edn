@@ -2,7 +2,7 @@
  ;; not need to exist beforehand
  :out-dir "/tmp/project-a-b"
 
- ;; List of projects to link to in the generate project. Each project
+ ;; List of projects to link to in the generated project. Each project
  ;; should be a map with a key :dir whose value should be the
  ;; project's directory on disk. ~ will be expanded to the user's home
  ;; directory
